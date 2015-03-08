@@ -1,0 +1,14 @@
+<div class="navbar navbar-default navbar-static-top blue-footer" ng-controller="FooterCtrl">
+
+
+  <div collapse="false" class="navbar-collapse collapse" id="navbar-main">
+    <ul class="nav navbar-nav">
+      <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}; item.style">
+        <a style="color: white" ng-href="{{item.link}}">{{item.title}} 
+          <span class='dashSpace'>{{$last ? '' : '-'}}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+    <img class="img-responsive hidden-xs center-block footerImage"src="assets/images/logo_simons_overlay.png" alt="Simons Foundation" />
+</div>
