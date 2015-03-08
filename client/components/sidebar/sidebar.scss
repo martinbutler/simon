@@ -1,0 +1,38 @@
+.side-bar-title {
+  color: #384da0;
+  font-family: 'Verdana';
+  font-size: 115%; 
+}
+
+.side-list {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.video-title {
+  background-color: #6f727b;
+  font-size: 150%;
+  color: white;
+}
+
+.video-subtitle {
+  opacity: 0.8;
+  background-color: #FFF;
+  margin-top: -30px;
+  margin-bottom: 5px;
+  color: #384da0;
+  font-size: 125%;
+}
+
+.video-image {
+  width: 100%;
+}
+
+.video-play {
+  background-color: #6f727b;
+  color: white;
+  i {
+    margin-left: 4px;
+  }
+}
