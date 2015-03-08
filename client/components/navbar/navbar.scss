@@ -1,0 +1,100 @@
+.site-description {
+  font-family: 'Verdana';
+  letter-spacing: -0.002em;
+  line-height: 1.21em;
+  clear: both;
+  border: 0;
+  font-size: 105%;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+  color: #373737;
+  font-weight: 50;
+  margin-top: -10px;
+}
+
+@media (min-width: 850px) {
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar-nav > li {
+    float: none;
+    display: inline-block;
+  }
+  .navbar-nav > li.navbar-right {
+    float: right !important;
+  }
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #6f727b;
+    padding: 0px;
+}
+
+.navbar-default .navbar-nav > li {
+    padding: 3px;
+}
+
+.barcolor {
+  background-color: #384da0;
+}
+
+.menu1 {
+  font-family: 'UniversNextW01-Regular';  
+  font-size: 90%;
+}
+
+.menu2 {
+  font-size: 85%;
+  text-align: center;
+  border-right: 1px solid #FFF;
+  border-left: 1px solid #FFF;
+}
+
+// adjusted the navbar collapse breakpoint from 768 to 850px
+//    better UX then having menu items create additional rows 
+//    due to the lengthing names
+//  Includes increasing the font size for better UX on mobile
+//    devices.
+@media (max-width: 850px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        text-align: center;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+        width: 100%;
+        font-size:18px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .navbar-text {
+        float: none;
+        margin: 15px 0;
+    }
+    /* since 3.1.0 */
+    .navbar-collapse.collapse.in { 
+        display: block!important;
+    }
+    .collapsing {
+        overflow: hidden!important;
+    }
+}
