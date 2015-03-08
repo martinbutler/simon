@@ -1,0 +1,15 @@
+<div ng-controller="SidebarCtrl">
+  <h5 class="side-bar-title">About Simons Foundation</h5>
+  <ul class="side-list">
+    <li  ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+      <a ng-href="{{item.link}}">{{item.title}}</a>
+    </li>
+  </ul>
+  <br>
+  <div class="video-title">{{video.title}}</div>
+  <a href="{{video.href}}">
+    <img class='video-image' src="{{video.src}}"/>  
+    <div class="video-subtitle">{{video.subtitle}}</div>
+    <p class="video-play"><i class="fa fa-play"></i> watch video</p>
+  </a>
+</div>
