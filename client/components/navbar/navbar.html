@@ -1,20 +1,32 @@
 <div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="/" class="navbar-brand">simon-foundation</a>
-    </div>
-    <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
-      <ul class="nav navbar-nav">
-        <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-            <a ng-href="{{item.link}}">{{item.title}}</a>
+  <h1 ><a class="site-title"href="https://www.simonsfoundation.org/" title="Simons Foundation" rel="home"><img class="img-responsive"src="assets/images/logo_simons_small.png" alt="Simons Foundation" /></a></h1>
+  <h2 class="site-description">Advancing Research in Basic Science and Mathematics</h2>
+  <div class="navbar-header">
+    <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+
+  <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+    <div class="col-md-12">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="navbar-right" ng-repeat="item in menu" ng-class="{active: isActive(item.link)}; item.style; ">
+          <a ng-href="{{item.link}}">{{item.title | uppercase}} 
+            <span>{{$first ? '' : isCollapsed? '|' : ''}}</span>
+          </a>
         </li>
       </ul>
+    </div>
+      <div>
+        <ul class="nav navbar-nav barcolor">
+          <li ng-repeat="item in menu2" ng-class="{active: isActive(item.link)}; item.style">
+            <a style="color: white" ng-href="{{item.link}}">{{item.title | uppercase}}</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
