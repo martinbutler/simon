@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('simonFoundationApp')
+angular.module('simonsFoundationApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('main', {

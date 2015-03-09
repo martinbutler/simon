@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('simonFoundationApp')
+angular.module('simonsFoundationApp')
   .controller('FooterCtrl', function ($scope, $location) {
     $scope.menu = [{
       'title': 'Simons Society of Fellows',

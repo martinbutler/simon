@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('simonFoundationApp')
+angular.module('simonsFoundationApp')
   .controller('MainCtrl', function ($scope, $http) {
     $scope.awesomeThings = [];
 
