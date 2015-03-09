@@ -5,11 +5,11 @@
 
 table, th, td {
     border: 1px solid black;
+    text-align: center;
 }
 th {
     background-color: #384da0;
     color: white;
-    text-align: center;
 }
 tr:nth-of-type(odd) {
   background-color:#E3E3E3;

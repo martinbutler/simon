@@ -4,10 +4,10 @@
 
 <div class="col-md-12">
   <div class="col-md-9">
-          <div class="col-sm-2">
-        <img class='pics img-responsive hidden-xs' src="assets/images/sfari_chrom_search.jpeg"/>
-      </div>
-    <h2>Search the Reference Gene Data</h2>
+    <div class="col-sm-2">
+      <img class='pics img-responsive hidden-xs' src="assets/images/sfari_chrom_search.jpeg"/>
+    </div>
+    <h2>Search Reference Gene Data</h2>
     Search By:
     <select ng-model="searchBy"
       ng-options="select.selectTitle for select in searchableBy"
@@ -20,16 +20,18 @@
     <div ng-show="haveData">
       <p><strong>Page:</strong> {{tableParams.page()}}</p>
       <p><strong>Count per page:</strong> {{tableParams.count()}}</p>
-      
+      <button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Clear sorting</button>
       <table ng-table="tableParams" class="table">
       <tr ng-repeat="record in $data">
-        <td data-title="'Chromosome'">{{record.chrom}}</td>
-        <td data-title="'Name'">{{record.name}}</td>
-        <td data-title="'txStart'">{{record.txStart}}</td>
-        <td data-title="'txEnd'">{{record.txEnd}}</td>
+        <td data-title="'Chromosome'" sortable="'chrom'">{{record.chrom}}</td>
+        <td data-title="'Name'" sortable="'name'">{{record.name}}</td>
+        <td data-title="'txStart'" sortable="'txStart'">{{record.txStart}}</td>
+        <td data-title="'txEnd'" sortable="'txEnd'">{{record.txEnd}}</td>
       </tr>
       </table>
     </div>
+
+
   </div>
   <div class="col-md-3">
     <div ng-include="'components/sidebar/sidebar.html'"></div>

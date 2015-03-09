@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('simonsFoundationApp')
-  .controller('MainCtrl', function ($scope, $http, ngTableParams) {
+  .controller('MainCtrl', function ($scope, $http, ngTableParams, $filter) {
     $http.get('/api/genedata/distinctChrom/').success(function(chroms) {
       var reA = /[^a-zA-Z]/g;
       var reN = /[^0-9]/g;
@@ -42,12 +42,21 @@ angular.module('simonsFoundationApp')
 
     $scope.tableParams = new ngTableParams({
         page: 1,            // show first page
-        count: 10           // count per page
-      }, {
+        count: 10,          // count per page
+        sorting: {
+            // name: 'asc'     // initial sorting
+        }
+    }, {
         total: data.length, // length of data
         getData: function($defer, params) {
-            $defer.resolve(data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-      }
+            // use build-in angular filter
+            var orderedData = params.sorting() ?
+                                $filter('orderBy')(data, params.orderBy()) :
+                                data;
+
+            $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+        }
     });
+
 
   });
