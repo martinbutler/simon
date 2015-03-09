@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('simonFoundationApp')
+angular.module('simonsFoundationApp')
   .controller('SidebarCtrl', function ($scope, $location) {
     $scope.menu = [{
       'title': 'Mission',

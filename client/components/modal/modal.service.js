@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('simonFoundationApp')
+angular.module('simonsFoundationApp')
   .factory('Modal', function ($rootScope, $modal) {
     /**
      * Opens a modal
