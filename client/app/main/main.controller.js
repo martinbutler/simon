@@ -26,5 +26,9 @@ angular.module('simonsFoundationApp')
       })
     });
     $scope.searchBy = $scope.searchableBy[0];
+    $scope.getrefGeneData = function(field, criteria) {
+      $http.get('/api/genedata/search/' + field + '/' + criteria).success(function(data) {
+      });
+    }
 
   });

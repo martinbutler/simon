@@ -6,6 +6,8 @@ var controller = require('./geneData.controller');
 var router = express.Router();
 
 router.get('/distinctChrom/', controller.distinctChrom);
+router.get('/search/chrom/:criteria', controller.searchByChrom);
+router.get('/search/name/:criteria', controller.searchByName);
 router.get('/names/', controller.names);
 router.get('/', controller.index);
 router.get('/:id', controller.show);
