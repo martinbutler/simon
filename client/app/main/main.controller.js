@@ -18,21 +18,25 @@ angular.module('simonsFoundationApp')
       })
     });
 
-    $scope.searchableBy = [{'field': 'chrom', 
+    $scope.searchableBy = [{
+      'field': 'chrom', 
       'selectTitle': 'Chromosome',
       'description': 'Reference sequence chromosome or scaffold'
-    }, {'field': 'name', 
+    }, {
+      'field': 'name', 
       'selectTitle': 'Name',
       'description': 'Name of gene',
       'typeAheadData': ''
     }];
     $scope.searchBy = $scope.searchableBy[0];
     var data = [];
+    $scope.haveData = false;
 
     $scope.getrefGeneData = function(field, criteria) {
       $http.get('/api/genedata/search/' + field + '/' + criteria).success(function(geneData) {
         data = geneData;
         $scope.tableParams.reload();
+        $scope.haveData = true;
       });
     }
 
