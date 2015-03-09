@@ -4,6 +4,12 @@
 
 <div class="col-md-12">
   <div class="col-md-9">
+    Search By:
+    <select ng-model="searchBy"
+      ng-options="select.selectTitle for select in searchableBy"
+      ng-change="selected = ''">
+    </select> 
+    <input type="text" ng-model="selected" typeahead="select for select in searchBy.typeAheadData | filter:$viewValue" placeholder="Enter Search Criteria">
 
   </div>
   <div class="col-md-3">

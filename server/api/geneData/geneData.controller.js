@@ -54,6 +54,22 @@ exports.destroy = function(req, res) {
   });
 };
 
+// Get distinct of values from chrom field
+exports.distinctChrom = function(req, res) {
+  GeneData.distinct('chrom', function (err, geneDatas) {
+    if(err) { return handleError(res, err); }
+    return res.json(200, geneDatas);
+  });
+};
+
+// Get distinct of values from name field
+exports.names = function(req, res) {
+  GeneData.distinct('name', function (err, geneDatas) {
+    if(err) { return handleError(res, err); }
+    return res.json(200, geneDatas);
+  });
+};
+
 function handleError(res, err) {
   return res.send(500, err);
 }

@@ -5,6 +5,8 @@ var controller = require('./geneData.controller');
 
 var router = express.Router();
 
+router.get('/distinctChrom/', controller.distinctChrom);
+router.get('/names/', controller.names);
 router.get('/', controller.index);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
