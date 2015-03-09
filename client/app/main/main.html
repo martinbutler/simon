@@ -21,7 +21,9 @@
       <p><strong>Page:</strong> {{tableParams.page()}}</p>
       <p><strong>Count per page:</strong> {{tableParams.count()}}</p>
       <button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Clear sorting</button>
-      <table ng-table="tableParams" class="table">
+      <a class="btn btn-primary" ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="{{criteria}}.csv">Export to CSV</a>
+    
+      <table ng-table="tableParams" class="table" export-csv="csv">
       <tr ng-repeat="record in $data">
         <td data-title="'Chromosome'" sortable="'chrom'">{{record.chrom}}</td>
         <td data-title="'Name'" sortable="'name'">{{record.name}}</td>

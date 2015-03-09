@@ -6,7 +6,8 @@ angular.module('simonsFoundationApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'ngTable'
+  'ngTable',
+  'ngTableExport'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
