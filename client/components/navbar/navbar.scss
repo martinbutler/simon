@@ -1,3 +1,10 @@
+// mimic simons foundation header title styling
+// wiht the following updates:
+//    adjusted the navbar collapse breakpoint from 768 to 850px
+//      better UX then having menu items create additional rows 
+//      due to the lengthing names
+//    Includes increasing the font size for better UX on mobile
+//      devices.
 .site-description {
   font-family: 'Verdana';
   letter-spacing: -0.002em;
@@ -53,11 +60,6 @@
   border-left: 1px solid #FFF;
 }
 
-// adjusted the navbar collapse breakpoint from 768 to 850px
-//    better UX then having menu items create additional rows 
-//    due to the lengthing names
-//  Includes increasing the font size for better UX on mobile
-//    devices.
 @media (max-width: 850px) {
     .navbar-header {
         float: none;
