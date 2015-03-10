@@ -52,11 +52,11 @@ angular.module('simonsFoundationApp')
     // get search results
     $scope.getrefGeneData = function(field, criteria) {
       $http.get('/api/genedata/search/' + field + '/' + criteria).success(function(geneData) {
-        // validate results returns records, if not provide error msg to user
+        data = geneData;
+        $scope.tableParams.reload();
+        $scope.tableParams.total(data.length);
+        // validate that data was returned, if not provide error msg to user
         if(geneData.length > 0) {
-          data = geneData;
-          $scope.tableParams.reload();
-          $scope.tableParams.total(data.length);
           $scope.searchError = false;
         } else {
           $scope.searchError = "ERROR: No records found for '" + criteria + "'";
