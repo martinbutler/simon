@@ -72,7 +72,7 @@ exports.names = function(req, res) {
 
 // Get search for chrom based on user criteria
 exports.searchByChrom = function(req, res) {
-  GeneData.find( { 'chrom': req.params.criteria}, function (err, geneDatas) {
+  GeneData.find( { 'chrom': req.params.criteria}, {'_id': false},  function (err, geneDatas) {
     if(err) { return handleError(res, err); }
     return res.json(200, geneDatas);
   });
@@ -80,7 +80,7 @@ exports.searchByChrom = function(req, res) {
 
 // Get search for name based on user criteria
 exports.searchByName = function(req, res) {
-  GeneData.find( { 'name': req.params.criteria}, function (err, geneDatas) {
+  GeneData.find( { 'name': req.params.criteria}, {'_id': false}, function (err, geneDatas) {
     if(err) { return handleError(res, err); }
     return res.json(200, geneDatas);
   });

@@ -7,7 +7,8 @@ angular.module('simonsFoundationApp', [
   'ui.router',
   'ui.bootstrap',
   'ngTable',
-  'ngTableExport'
+  'ngTableExport',
+  'ngCsv'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider

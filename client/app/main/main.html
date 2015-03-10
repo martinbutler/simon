@@ -32,7 +32,7 @@
       <hr>
 
       <button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Clear sorting</button>
-      <a class="btn btn-primary" ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="{{criteria}}.csv">Export to CSV</a>
+      <button class="btn btn-primary" type="button" csv-header="csvHeader" ng-csv="getData()" filename="{{criteria}}.csv">Export to CSV</button>
     
       <table ng-table="tableParams" class="table" export-csv="csv">
         <tr ng-repeat="record in $data">
