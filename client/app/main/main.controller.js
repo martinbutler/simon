@@ -48,10 +48,15 @@ angular.module('simonsFoundationApp')
 
     $scope.getrefGeneData = function(field, criteria) {
       $http.get('/api/genedata/search/' + field + '/' + criteria).success(function(geneData) {
-        data = geneData;
-        $scope.tableParams.reload();
-        $scope.tableParams.total(data.length);
-        $scope.haveData = true;
+        if(geneData.length > 0) {
+          data = geneData;
+          $scope.tableParams.reload();
+          $scope.tableParams.total(data.length);
+          $scope.haveData = true;
+          $scope.searchError = false;
+        } else {
+          $scope.searchError = "ERROR: No records found for '" + criteria + "'";
+        }
       });
     }
 
@@ -70,4 +75,20 @@ angular.module('simonsFoundationApp')
         $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
       }
     });
+
+    $scope.notValid = true;
+    $scope.validateCriteria = function(crit) {
+      if(crit.length === 0 || $scope.searchBy.typeAheadData && $scope.searchBy.typeAheadData.indexOf(crit) < 0) {
+        $scope.notValid = true;
+      } else {
+        $scope.notValid = false;
+      }
+    }
+
+    $scope.keyPressed = function(keyEvent) {
+      if (keyEvent.which === 13 && !$scope.notValid) {
+        $scope.getrefGeneData($scope.searchBy.field, $scope.criteria);
+      }
+    }
+
   });

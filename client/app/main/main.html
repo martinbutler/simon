@@ -11,17 +11,21 @@
     Search By:
     <select ng-model="searchBy"
       ng-options="select.selectTitle for select in searchableBy"
-      ng-change="criteria = ''">
+      ng-change="criteria = ''; validateCriteria(criteria)">
     </select> 
-    <input type="text" ng-model="criteria" typeahead="select for select in searchBy.typeAheadData | filter:$viewValue" placeholder="Enter Search Criteria">
+    <input type="text" ng-keyup="keyPressed($event)" ng-change="validateCriteria(criteria)" typeahead-on-select="validateCriteria(criteria)" ng-model="criteria" typeahead="select for select in searchBy.typeAheadData | filter:$viewValue" placeholder="Enter Search Criteria">
 
-    <button ng-click="getrefGeneData(searchBy.field, criteria)">search</button>
+    <button class="btn btn-primary btn-sm" ng-disabled="notValid"  ng-click="getrefGeneData(searchBy.field, criteria)">Search</button>
     <div ng-show="haveData">
       Select Style:
       <select ng-model="userStyle"
         ng-options="style.title for style in userStyles"
         ng-change="criteria = ''">
       </select> 
+    </div>
+
+    <div class='searchError' ng-show="searchError">
+      <h3>{{searchError}}</h3>
     </div>
 
     <div class="col-md-12" ng-show="haveData" ng-class="userStyle.css_class">
@@ -39,7 +43,6 @@
         </tr>
       </table>
     </div>
-
 
   </div>
   <div class="col-md-3">
