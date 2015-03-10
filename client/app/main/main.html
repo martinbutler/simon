@@ -7,7 +7,7 @@
     <div class="col-sm-2">
       <img class='pics img-responsive hidden-xs' src="assets/images/sfari_chrom_search.jpeg"/>
     </div>
-    <h2>Search Reference Gene Data</h2>
+    <h3>Search Reference Gene Data</h3>
     Search By:
     <select ng-model="searchBy"
       ng-options="select.selectTitle for select in searchableBy"
@@ -16,20 +16,27 @@
     <input type="text" ng-model="criteria" typeahead="select for select in searchBy.typeAheadData | filter:$viewValue" placeholder="Enter Search Criteria">
 
     <button ng-click="getrefGeneData(searchBy.field, criteria)">search</button>
-
     <div ng-show="haveData">
-      <p><strong>Page:</strong> {{tableParams.page()}}</p>
-      <p><strong>Count per page:</strong> {{tableParams.count()}}</p>
+      Select Style:
+      <select ng-model="userStyle"
+        ng-options="style.title for style in userStyles"
+        ng-change="criteria = ''">
+      </select> 
+    </div>
+
+    <div class="col-md-12" ng-show="haveData" ng-class="userStyle.css_class">
+      <hr>
+
       <button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Clear sorting</button>
       <a class="btn btn-primary" ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="{{criteria}}.csv">Export to CSV</a>
     
       <table ng-table="tableParams" class="table" export-csv="csv">
-      <tr ng-repeat="record in $data">
-        <td data-title="'Chromosome'" sortable="'chrom'">{{record.chrom}}</td>
-        <td data-title="'Name'" sortable="'name'">{{record.name}}</td>
-        <td data-title="'txStart'" sortable="'txStart'">{{record.txStart}}</td>
-        <td data-title="'txEnd'" sortable="'txEnd'">{{record.txEnd}}</td>
-      </tr>
+        <tr ng-repeat="record in $data">
+          <td data-title="'Chromosome'" sortable="'chrom'">{{record.chrom}}</td>
+          <td data-title="'Name'" sortable="'name'">{{record.name}}</td>
+          <td data-title="'txStart'" sortable="'txStart'">{{record.txStart}}</td>
+          <td data-title="'txEnd'" sortable="'txEnd'">{{record.txEnd}}</td>
+        </tr>
       </table>
     </div>
 

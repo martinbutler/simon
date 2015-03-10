@@ -28,35 +28,46 @@ angular.module('simonsFoundationApp')
       'description': 'Name of gene',
       'typeAheadData': ''
     }];
+    $scope.userStyles = [{
+      'title': 'Default',
+      'css_class': 'searchDefault'
+    }, {
+      'title': 'Midnight',
+      'css_class': 'searchMidnight'
+    }, {
+      'title': 'Emerald',
+      'css_class': 'searchEmerald'
+    }, {
+      'title': 'Blues',
+      'css_class': 'searchBlues'
+    }]
     $scope.searchBy = $scope.searchableBy[0];
     var data = [];
     $scope.haveData = false;
+    $scope.userStyle = $scope.userStyles[0];
 
     $scope.getrefGeneData = function(field, criteria) {
       $http.get('/api/genedata/search/' + field + '/' + criteria).success(function(geneData) {
         data = geneData;
         $scope.tableParams.reload();
+        $scope.tableParams.total(data.length);
         $scope.haveData = true;
       });
     }
 
     $scope.tableParams = new ngTableParams({
-        page: 1,            // show first page
-        count: 10,          // count per page
-        sorting: {
-            // name: 'asc'     // initial sorting
-        }
+      page: 1,            // show first page
+      count: 10,          // count per page
+      sorting: {}         // set a default sort
     }, {
-        total: data.length, // length of data
-        getData: function($defer, params) {
-            // use build-in angular filter
-            var orderedData = params.sorting() ?
-                                $filter('orderBy')(data, params.orderBy()) :
-                                data;
+      total: data.length, // length of data
+      getData: function($defer, params) {
+        // use build-in angular filter
+        var orderedData = params.sorting() ?
+                            $filter('orderBy')(data, params.orderBy()) :
+                            data;
 
-            $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-        }
+        $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+      }
     });
-
-
   });
