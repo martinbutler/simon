@@ -1,3 +1,10 @@
+// mimic simons foundation footer styling
+// wiht the following updates:
+//    adjusted the footer collapse breakpoint from 768 to 850px
+//      better UX then having menu items create additional rows 
+//      due to the lengthing names
+//    Includes increasing the font size for better UX on mobile
+//      devices.
 .blue-footer {
   background-color: #384da0;
   font-size: 10px;

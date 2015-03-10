@@ -1,12 +1,28 @@
+// limit the dropdown for typeahead 
 .dropdown-menu {
   max-height: 185px;
   overflow-y: auto;
 }
 
+// better formatting on mobile devices:
+//  change font size on table
+//  reduce the dropdown menu for typeahead
+@media screen and (max-width: 525px) {
+  table, th, td, tr {
+    font-size: 83%;
+  }
+  .dropdown-menu {
+  max-height: 100px;
+  overflow-y: auto;
+}
+}
+
+// Error Styling
 .searchError {
   color: red;
 }
 
+// Default table styling
 .searchDefault {
   table, th, td {
     border: 1px solid black;
@@ -27,6 +43,7 @@
   }
 }
 
+// user selectable option for table styling
 .searchMidnight {
   table, th, td {
     border: 1px solid black;
@@ -52,6 +69,7 @@
   }
 }
 
+// user selectable option for table styling
 .searchEmerald {
   table, th, td {
     border: 1px solid black;
@@ -77,6 +95,7 @@
   }
 }
 
+// user selectable option for table styling
 .searchBlues {
   table, th, td {
     border: 1px solid black;

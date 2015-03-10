@@ -17,9 +17,6 @@ angular.module('simonsFoundationApp')
     }];
     $scope.isCollapsed = false;
 
-    $scope.isActive = function(route) {
-      return route === $location.path();
-    };
     $scope.video = {
       'title': 'Science Lives',
       'href': 'https://www.simonsfoundation.org/science_lives_video/paul-sally/',
