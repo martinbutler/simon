@@ -1,1 +1,1 @@
-mongoimport --db simonsfoundation-dev --collection geneData --file ./refGeneData.json --jsonArray
+mongoimport --db simonsfoundation-dev --collection genedatas --file ./refGeneData.json --jsonArray
