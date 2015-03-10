@@ -91,4 +91,9 @@ angular.module('simonsFoundationApp')
       }
     }
 
+    $scope.csvHeader=['chrom', 'name', 'txEnd', 'txStart'];
+    $scope.getData = function() {
+      return data;
+    }
+
   });
