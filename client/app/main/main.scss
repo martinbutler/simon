@@ -3,6 +3,10 @@
   overflow-y: auto;
 }
 
+.searchError {
+  color: red;
+}
+
 .searchDefault {
   table, th, td {
     border: 1px solid black;
