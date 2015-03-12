@@ -80,7 +80,7 @@ exports.searchByChrom = function(req, res) {
 
 // Get search for name based on user criteria
 exports.searchByName = function(req, res) {
-  GeneData.find( { 'name': req.params.criteria}, {'_id': false}, function (err, geneDatas) {
+  GeneData.find( { 'name': req.params.criteria.toUpperCase()}, {'_id': false}, function (err, geneDatas) {
     if(err) { return handleError(res, err); }
     return res.json(200, geneDatas);
   });
