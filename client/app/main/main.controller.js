@@ -65,8 +65,19 @@ angular.module('simonsFoundationApp')
                             $filter('orderBy')(data, params.orderBy()) :
                             data;
 
-        $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+        var pageData = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());                            
+        $defer.resolve(pageData);
+        // bar chart data
+        $scope.set = {
+          x: [ ],
+          y: [ ]
+        };
+        for(var i=0; i<pageData.length; i++) {
+          $scope.set.x.push(pageData[i].name);
+          $scope.set.y.push(pageData[i].txEnd - pageData[i].txStart);
+        }
       }
+
     });
 
     // user input validation

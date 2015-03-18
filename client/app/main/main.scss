@@ -22,6 +22,20 @@
   color: red;
 }
 
+.chart .domain {
+  fill: none;
+  stroke-width: 1;
+  stroke: #D4D4D1;
+}
+  
+.chart .bar {
+  fill: #384da0;
+}
+
+.tick {
+  font-size: 12px;
+}
+
 // Default table styling
 .searchDefault {
   table, th, td {
