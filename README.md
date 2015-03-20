@@ -10,21 +10,21 @@ In addition to building the search tool, I have included the following:
     - navbar.html
     - navbar.scss
     - navbar.controller.js
-  * description: This was to mimic the current Simons Foundation Website NavBar. I made adjusts to account for the length of the navbar items.  The navbar items will collapse at 850px instead of 768px.  This prevents the wrapping of the items to addition lines between 768 and 850 to provide a better UX.
+  * description: This was to mimic the current Simons Foundation Website NavBar. I made adjustments to account for the length of the navbar items.  The navbar items will collapse at 850px instead of 768px.  This prevents the wrapping of the items to addition lines between 768 and 850 to provide a better UX.
 
 2. Footer:
   * files
     - footer.html
     - footer.scss
     - footer.controller.js
-  * description: This was to mimic the current Simons Foundation Website footer. I made adjusts to account for the length of the footer items.  The footer items will collapse at 850px instead of 768px.  This prevents the wrapping of the items to addition lines between 768 and 850 to provide a better UX.
+  * description: This was to mimic the current Simons Foundation Website footer. I made adjustments to account for the length of the footer items.  The footer items will collapse at 850px instead of 768px.  This prevents the wrapping of the items to addition lines between 768 and 850 to provide a better UX.
 
 3. Sidebar:
   * files
     - sidebar.html
     - sidebar.scss
     - sidebar.controller.js
-  * description: This was to mimic the current Simons Foundation Website sidebar when doing a search. (i.e. https://www.simonsfoundation.org/?s=autism&submit= ).  I made adjusts on the responsiveness. When the sidebar is moved below the body, the image and text associated with it will expand to fit window width and maintain its persistence on mobile devices to provide a better UX.
+  * description: This was to mimic the current Simons Foundation Website sidebar when doing a search. (i.e. https://www.simonsfoundation.org/?s=autism&submit= ).  I made adjustments on the responsiveness. When the sidebar is moved below the body, the image and text associated with it will expand to fit the window width and maintain its persistence on mobile devices to provide a better UX.
 
 ## Search Tool Design:
 1. Image: For aesthetics and to allow for the user search option interface to be placed to its right.
@@ -37,24 +37,24 @@ In addition to building the search tool, I have included the following:
   * Enter Search Criteria: input box
     - Typeahead: includes a typeahead option, should the search field have a limited number of distinct values, which is the case for the 'chrom' field.  I implemented this feature to give users a selectable option, in addition to ensuring more accurate queries
       - Typeahead dropdown: for better UX, height has been limited, but scrollable.  Is responsive and will adjust height on mobile devices.
-      - Typeahead items: are sorted using an alpha-numeric sort to provide user with a more normalized ordering of the data.
+      - Typeahead items: are sorted using a natural sort factory I created to provide the user with a more natural ordering of the data.
     - Validation: includes validation rules:
       - search criteria must be at least one character
-      - if there is typeahead, then the search criteria must be a member of the typeahead data
-    - Keyboard events: if user presses enter while in the input box, it will fire an event to perform query if search criteria passes validation.  This option provides user with a more natural interaction and eliminates the need for the user to click the search button.
+      - if there is typeahead data, then the search criteria must be a member of that typeahead data
+    - Keyboard events: if user presses the enter key while the focus is in the input box, it will fire an event to perform the search query if the search criteria passes validation.  This option provides the user with a more natural interaction and eliminates the need for the user to click the search button.
 
   * Search Button: remains disabled until search criteria has been met in the Enter Search Criteria input box.
 
-  * Select Style: is a select that user can select from 4 different styles for their results table.
-    - Will only be disabled if when there are results to be displayed.
+  * Select Style: is a select that the user can select from 4 different styles for their results table.
+    - Will only be enabled if the search query garners results.
 
-  * Error Msg: will be displayed if query garners no results.
+  * Error Msg: will be displayed if the query garners no results.
     - will include the user's search criteria in the message.
 
 3. Results area:
   * will only display if there are results from a query
-  * Export to CSV Button: Gives the user the flexibility of downloading their results in the CSV file. It includes the a header row.
-  * Clear Sorting Button: give the user to reset any sorting they may have done.
+  * Export to CSV Button: Gives the user the flexibility of downloading their results into a CSV file, which will inlcude a header row.
+  * Clear Sorting Button: gives the user the option to reset any sorting they may have done.
   * Table:
     - Header: All fields are sortable, both ascending and descending.
     - Table View Options:
@@ -63,7 +63,7 @@ In addition to building the search tool, I have included the following:
     - CSS Styling:
       - includes 4 options
       - Default option is to mimic the look and feel of the current Simons Foundation website.
-      - every other row will have different shading for easier viewing.
+      - Zebra Striping: every other row will have different shading for easier viewing.
 
 ## Install
 
